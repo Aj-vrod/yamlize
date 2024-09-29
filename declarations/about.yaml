@@ -1,0 +1,13 @@
+path: "/about"
+header:
+  title: "This is about website"
+  textColor: "#000"
+  backgroundColor: "#f0f0f0"
+body:
+  title: "More stuff to know about."
+footer:
+  links:
+    - label: "Github repository"
+      url: "https://www.github.com"
+    - label: "Google"
+      url: "https://www.google.com"
