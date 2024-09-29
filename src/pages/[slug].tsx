@@ -4,6 +4,7 @@ import yaml from 'js-yaml';
 import { Header } from '@/components/Header'
 import { Body } from '@/components/Body';
 import { Footer, Link } from '@/components/Footer';
+import { Navbar } from '@/components/Navbar';
 
 type Header = {
   title: string,
@@ -74,6 +75,7 @@ export default function Page ({ declarations }: Declarations) {
   
   return(
     <>
+      <Navbar />
       <Header 
         title={declarations.header.title} 
         backgroundColor={declarations.header.backgroundColor} 

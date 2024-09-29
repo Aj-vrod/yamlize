@@ -1,8 +1,12 @@
-type NavbarProps = {
-  paths: string[]
-}
+import { Link } from "./Footer";
 
-export const Navbar = ({ paths }: NavbarProps) => {
+const paths: Link[] = [
+  { label: 'Home', url: '/' },
+  { label: 'About', url: '/about' },
+  { label: 'Contact', url: '/contact' },
+];
+
+export const Navbar = () => {
   const navbarStyle = {
     display: 'flex',
     justifyContent: 'space-between',
@@ -33,9 +37,9 @@ export const Navbar = ({ paths }: NavbarProps) => {
   return (
     <nav style={navbarStyle}>
       <ul style={linkContainerStyle}>
-        {paths.map((path, index) => (
-          <li key={index} style={linkItemStyle}>
-            <a href={path} style={linkStyle}>{path}</a>
+        {paths.map((path) => (
+          <li key={path.label} style={linkItemStyle}>
+            <a href={path.url} style={linkStyle}>{path.label}</a>
           </li>
         ))}
       </ul>
