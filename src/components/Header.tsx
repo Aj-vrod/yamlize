@@ -10,11 +10,10 @@ type HeaderProps = {
 export const Header = ({ title, backgroundColor, textColor, icon }: HeaderProps) => {
   const headerStyle: CSSProperties = {
     display: 'flex',
-    justifyContent: 'space-between',
     alignItems: 'center',
     backgroundColor: backgroundColor || '#f0f0f0',
     color: textColor || '#000',
-    height: '30vh',
+    height: '50vh',
     padding: '20px',
     boxSizing: 'border-box',
   };
@@ -23,18 +22,17 @@ export const Header = ({ title, backgroundColor, textColor, icon }: HeaderProps)
     fontSize: '3rem',
     fontWeight: 'bold',
     margin: 0,
-    alignSelf: 'flex-start',
   };
 
-  const svgStyle = {
-    height: '80%',
-    alignSelf: 'center',
+  const iconStyle = {
+    fontSize: '5rem',
+    marginLeft: 'auto',
   };
 
   return (
     <header style={headerStyle}>
       <h1 style={titleStyle}>{title}</h1>
-      {icon && <img src={icon} alt="Header Icon" style={svgStyle} />}
+      {icon && <img src={icon} alt="Header Icon" style={iconStyle} />}
     </header>
   );
 };

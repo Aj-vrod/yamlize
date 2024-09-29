@@ -4,7 +4,6 @@ import yaml from 'js-yaml';
 import { Header } from '@/components/Header'
 import { Body } from '@/components/Body';
 import { Footer, Link } from '@/components/Footer';
-import { Navbar } from '@/components/Navbar';
 
 type Header = {
   title: string,
@@ -21,6 +20,7 @@ type Footer = {
 }
 
 export type YamlDeclaration = {
+  name: string,
   path: string,
   header: Header,
   body: Body,
@@ -38,7 +38,7 @@ export const getStaticPaths = async () => {
     
     // Return the path defined in each YAML file
     return {
-      params: { slug: declarations.path.replace('/', '') }
+      params: { slug: declarations.name }
     };
   });
 
@@ -48,8 +48,14 @@ export const getStaticPaths = async () => {
   };
 }
 
+type Props = {
+  params: {
+    slug: string
+  }
+}
+
 // Fetch page content based on the path/slug
-export const getStaticProps = async ({params}) => {
+export const getStaticProps = async ({ params }: Props) => {
   // Find the correct YAML file based on the slug
   const filePath = path.join('declarations', `${params.slug}.yaml`);
   const fileContents = fs.readFileSync(filePath, 'utf8');
@@ -60,11 +66,14 @@ export const getStaticProps = async ({params}) => {
   };
 }
 
-export default function Page ({declarations}) {
+type Declarations = {
+  declarations: YamlDeclaration
+}
+
+export default function Page ({ declarations }: Declarations) {
   
   return(
     <>
-      <Navbar/>
       <Header 
         title={declarations.header.title} 
         backgroundColor={declarations.header.backgroundColor} 

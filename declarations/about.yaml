@@ -1,8 +1,10 @@
+name: "about"
 path: "/about"
 header:
   title: "This is about website"
   textColor: "#000"
   backgroundColor: "#f0f0f0"
+  icon: "../favicon.ico"
 body:
   title: "More stuff to know about."
 footer:

@@ -1,10 +1,8 @@
-import React from 'react';
-import fs from 'fs';
-import path from 'path';
-import yaml from 'js-yaml';
-import { YamlDeclaration } from '@/pages/[slug]';
+type NavbarProps = {
+  paths: string[]
+}
 
-export const Navbar = () => {
+export const Navbar = ({ paths }: NavbarProps) => {
   const navbarStyle = {
     display: 'flex',
     justifyContent: 'space-between',
@@ -31,15 +29,6 @@ export const Navbar = () => {
     textDecoration: 'none', 
     fontWeight: '500',
   };
-
-  const files = fs.readdirSync(path.join('declarations'));
-  
-  const paths = files.map(file => {
-    const fileContents = fs.readFileSync(path.join('declarations', file), 'utf8');
-    const declarations = yaml.load(fileContents) as YamlDeclaration;
-    
-    return declarations.path
-  });
 
   return (
     <nav style={navbarStyle}>

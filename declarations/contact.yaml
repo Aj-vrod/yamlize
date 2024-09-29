@@ -1,0 +1,13 @@
+name: "contact"
+path: "/contact"
+header:
+  title: "Contact page"
+body:
+  title: "This is the contact page."
+  subtitle: "You can find the phone number, email, GitHub account, etc."
+footer:
+  links:
+    - label: "Github repository"
+      url: "https://www.github.com"
+    - label: "Google"
+      url: "https://www.google.com"
